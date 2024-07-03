@@ -1,4 +1,4 @@
-import Input from "../components/input";
+import Input from "../components/Input";
 import { useCallback, useState } from "react";
 
 interface InputProps {
@@ -39,6 +39,7 @@ const Auth = () => {
                       }
                       id="name"
                       value={name}
+                      type="text"
                     />
 
                 )}
@@ -70,7 +71,7 @@ const Auth = () => {
             )}
             {variant === "login" && (
             <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition">
-              login
+              Login
             </button>
             )}
 
