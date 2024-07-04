@@ -4,6 +4,9 @@ import { useCallback, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/router";
 
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
+
 const Auth = () => {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -25,13 +28,12 @@ const Auth = () => {
         redirect: false,
         callbackUrl: "/",
       });
-      router.push('/');
+      router.push("/");
     } catch (error) {
       console.log(error);
     }
   }, [email, password, router]);
 
-  
   const register = useCallback(async () => {
     try {
       await axios.post("/api/register", {
@@ -43,9 +45,7 @@ const Auth = () => {
     } catch (error) {
       console.log(error);
     }
-  }, [email, name, password,login]);
-
-
+  }, [email, name, password, login]);
 
   return (
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -107,6 +107,52 @@ const Auth = () => {
                 Login
               </button>
             )}
+
+            <div className="flex  justify-evenly">
+            <div className="flex flex-row items-center gap4 mt8 justify-center">
+              <br />
+              <br />
+              <br />
+              <div
+                className="
+                 w-10
+                 h-10
+                 bg-white
+                 rounded-full
+                 flex
+                 items-center
+                 justify-center
+                 cursor-pointer
+                 hover:opacity-80
+                 transition
+                "
+              >
+                <FcGoogle size={30} />
+              </div>
+            </div>
+            <div className="flex flex-row items-center gap4 mt8 justify-center">
+              <br />
+              <br />
+              <br />
+              <div
+                className="
+                 w-10
+                 h-10
+                 bg-white
+                 rounded-full
+                 flex
+                 items-center
+                 justify-center
+                 cursor-pointer
+                 hover:opacity-80
+                 transition
+                "
+              >
+                <FaGithub size={30} />
+              </div>
+            </div>
+
+            </div>
 
             {variant === "login" && (
               <p className="text-neutral-500 mt-12">
